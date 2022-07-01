@@ -1,11 +1,14 @@
 package model;
 
+import java.util.List;
+
 public class Customer {
     private final int id;
     private String firstName;
     private String lastName;
     private String email;
-    private int accountNumber;
+
+    private List<BankAccount> bankAccount;
 
     public Customer(int id, String firstName, String lastName, String email) {
         this.id = id;
@@ -42,15 +45,15 @@ public class Customer {
         this.email = email;
     }
 
-    public int getAccountNumber() {
-        return accountNumber;
+    public List<BankAccount> getBankAccount() {
+        return bankAccount;
     }
 
-    public void setAccountNumber(int accountNumber) {
-        this.accountNumber = accountNumber;
+    public void setBankAccount(List<BankAccount> bankAccount) {
+        this.bankAccount = bankAccount;
     }
 
     public String getSummary(){
-        return " ID: " + this.id + " first name : " + firstName + " Last name: " + lastName + " Email: " + email + "Account number: " + accountNumber;
+        return " ID: " + this.id + " first name : " + firstName + " Last name: " + lastName + " Email: " + email;
     }
 }

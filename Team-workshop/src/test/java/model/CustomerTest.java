@@ -1,6 +1,5 @@
 package model;
 
-import data.AccountNumberGenerator;
 import data.CustomerIdGenerator;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
@@ -14,7 +13,6 @@ class CustomerTest {
         String firstName = "Simon";
         String lastName = "Elbrink";
         String email = "se@mail.com";
-        int accountNumber = 0;
 
         //Act
         id = CustomerIdGenerator.nextCustomerId();
@@ -25,7 +23,6 @@ class CustomerTest {
         assertEquals(firstName, customer.getFirstName());
         assertEquals(lastName, customer.getLastName());
         assertEquals(email, customer.getEmail());
-        assertEquals(accountNumber, customer.getAccountNumber());
     }
 
     @Test
@@ -147,40 +144,6 @@ class CustomerTest {
 
         //Assert
         assertEquals(expectedEmail, customer.getEmail());
-    }
-
-    @Test
-    void getAccountNumber() {
-        //Arrange
-        int id = 1;
-        String firstName = "Simon";
-        String lastName = "Elbrink";
-        String email = "se@mail.com";
-        int accountNumber = 0;
-
-        //Act
-        Customer customer = new Customer(id, firstName, lastName, email);
-
-        //Assert
-        assertEquals(accountNumber, customer.getAccountNumber());
-    }
-
-    @Test
-    void setAccountNumber() {
-        //Arrange
-        int id = 1;
-        String firstName = "Simon";
-        String lastName = "Elbrink";
-        String email = "se@mail.com";
-        int accountNumber = 0;
-
-        //Act
-        Customer customer = new Customer(id, firstName, lastName, email);
-        accountNumber = AccountNumberGenerator.nextAccountNumber();
-        customer.setAccountNumber(accountNumber);
-
-        //Assert
-        assertEquals(accountNumber, customer.getAccountNumber());
     }
 
     @Test

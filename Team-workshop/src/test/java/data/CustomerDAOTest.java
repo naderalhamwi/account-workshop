@@ -17,7 +17,6 @@ class CustomerDAOTest {
         String firstName = "Simon";
         String lastName = "Elbrink";
         String email = "se@mail.com";
-        int accountNumber = 0;
 
         //Act
         CustomerDAO customerDAO = new CustomerDAO();
@@ -29,7 +28,6 @@ class CustomerDAOTest {
         assertEquals(email, expectedCustumer.getEmail());
         assertEquals(lastName, expectedCustumer.getLastName());
         assertEquals(firstName, expectedCustumer.getFirstName());
-        assertEquals(accountNumber, expectedCustumer.getAccountNumber());
     }
 
     @Test
