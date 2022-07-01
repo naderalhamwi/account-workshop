@@ -9,20 +9,39 @@ public class CustomerDAO {
     private List<Customer> customers = new ArrayList<>();
     private List<String> customerEmail = new ArrayList<>();
 
-    public void createCustomer(String firstName, String lastName, String email){
+    public List<Customer> getCustomers() {
+        return customers;
+    }
+
+    public void setCustomers(List<Customer> customers) {
+        this.customers = customers;
+    }
+
+    public List<String> getCustomerEmail() {
+        return customerEmail;
+    }
+
+    public void setCustomerEmail(List<String> customerEmail) {
+        this.customerEmail = customerEmail;
+    }
+
+    public Customer createCustomer(String firstName, String lastName, String email){
 
         int id = CustomerIdGenerator.nextCustomerId() ;
-        int accountNumber = AccountNumberGenerator.nextAccountNumber();
 
         Customer customer = new Customer(id, firstName, lastName, email);
-        customer.setAccountNumber(accountNumber);
 
         if(emailIsUnique(email)){
             customer.setEmail(email);
             customerEmail.add(email);
         }
+        else{
+            customer.setEmail("email is not set");
+        }
 
         customers.add(customer);
+
+        return customer;
     }
 
      public boolean emailIsUnique(String email){
